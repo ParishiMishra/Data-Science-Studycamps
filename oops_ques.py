@@ -24,7 +24,7 @@ def main():
     print("Name: ", person.name)
     print("Country: ", person.country)
     print("Age: ", person.calculateage())
-main()
+#main()
 
 #2. Write a Python program to create a class representing a bank. 
 # Include methods for managing customer accounts and transactions.
@@ -80,6 +80,99 @@ def main():
             break
         else:
             print("Invalid choice. Please choose a valid option.")
+        ans=input("Do you want to continue? y/n: ")
+        if ans=='n':
+            break
+#main()
+
+# 3. Write a Python program to create a class representing a shopping cart. 
+# Include methods for adding and removing items, and calculating the total price. 
+class shoppingcart:
+    def __init__(self):
+        self.items=[]
+    def add_item(self,name,price, quantity):
+        item ={
+            'name':name,
+            'price':price,
+            'quantity':quantity
+        }
+        self.items.append(item)
+        print(f"Added {quantity} x {name}(s) to the cart.")
+
+    def remove_item(self, name):
+        for item in self.items:
+            if item['name'] == name:
+                self.items.remove(item)
+                print(f"Removed {name} from the cart.")
+                return
+        print(f"Item {name} not found in the cart.")
+
+    def calculate_total(self):
+        total = 0
+        for item in self.items:
+            total += item['price'] * item['quantity']
+        return total
+
+    def display_cart(self):
+        if len(self.items) == 0:
+            print("Your shopping cart is empty.")
+        else:
+            print("Your shopping cart contains:")
+            for item in self.items:
+                print(f"{item['quantity']} x {item['name']} @ ${item['price']:.2f} each")
+            print(f"Total price: ${self.calculate_total():.2f}")
+
+def main():
+    cart = shoppingcart()
+    cart.add_item("Apple", 0.99, 3)
+    cart.add_item("Banana", 0.59, 5)
+    cart.add_item("Orange", 0.79, 2)
+    cart.display_cart()
+    cart.remove_item("Banana")
+    cart.display_cart()
+    total_price = cart.calculate_total()
+    print(f"The total price of the items in the cart is: ${total_price:.2f}")
+#main()
+    
+#4. Write a Python program to create a calculator class. 
+# Include methods for basic arithmetic operations.
+class Calculator:
+    def add(self, a, b):
+        return a + b
+    def subtract(self, a, b):
+        return a - b
+    def multiply(self, a, b):
+        return a * b
+    def divide(self, a, b):
+        if b == 0:
+            return "Error: Division by zero is not allowed."
+        else:
+            return a / b
+def main():
+    calculator = Calculator()
+    num1=eval(input("Enter num1: "))
+    num2=eval(input("Enter num2: "))
+    while True:
+        print("\nCalculator Menu:")
+        print("1. Add")
+        print("2. Subtract")
+        print("3. Multiply")
+        print("4. Divide")
+        print("5. Exit")
+        choice = input("Choose an operation (1-5): ")
+        if choice == '1':
+            print(f"Result: {calculator.add(num1, num2)}")
+        elif choice == '2':
+            print(f"Result: {calculator.subtract(num1, num2)}")
+        elif choice == '3':
+            print(f"Result: {calculator.multiply(num1, num2)}")
+        elif choice == '4':
+            print(f"Result: {calculator.divide(num1, num2)}")
+        elif choice == '5':
+            print("Exiting the calculator.")
+            break
+        else:
+            print("Invalid choice. Please choose a valid operation.")
         ans=input("Do you want to continue? y/n: ")
         if ans=='n':
             break
