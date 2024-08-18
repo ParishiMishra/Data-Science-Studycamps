@@ -24,7 +24,7 @@ def main():
     print("Name: ", person.name)
     print("Country: ", person.country)
     print("Age: ", person.calculateage())
-#main()
+main()
 
 #2. Write a Python program to create a class representing a bank. 
 # Include methods for managing customer accounts and transactions.
@@ -83,7 +83,7 @@ def main():
         ans=input("Do you want to continue? y/n: ")
         if ans=='n':
             break
-#main()
+main()
 
 # 3. Write a Python program to create a class representing a shopping cart. 
 # Include methods for adding and removing items, and calculating the total price. 
@@ -132,7 +132,7 @@ def main():
     cart.display_cart()
     total_price = cart.calculate_total()
     print(f"The total price of the items in the cart is: ${total_price:.2f}")
-#main()
+main()
     
 #4. Write a Python program to create a calculator class. 
 # Include methods for basic arithmetic operations.
